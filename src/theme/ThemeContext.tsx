@@ -1,10 +1,14 @@
+// ThemeContext.tsx
 import { createContext } from "react";
 
-type Theme = "winter" | "dim";
+export type Theme = "light" | "dark" | "system";
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+  resolvedTheme: "light" | "dark"; // The actual theme after resolving "system"
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined,
+);

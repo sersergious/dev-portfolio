@@ -1,7 +1,7 @@
 # SerSergious portfolio
 
 ## Project Overview
-This is my portfolio website. Here you can everything about me, what I do, and how I can help you. Feel free to take a look!
+This is my portfolio website. Here you can read about me, what I do, and how I can help you. Feel free to take a look!
 
 ## Technical Details
 Here is a brief overview of the technologies used in this project:

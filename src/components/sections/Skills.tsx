@@ -1,4 +1,6 @@
-export function Skills() {
+//Skills.tsx
+
+export default function Skills() {
   return (
     <section>
       <h2>Skills</h2>

@@ -1,4 +1,6 @@
-export function About() {
+//About.tsx
+
+export default function About() {
   return (
     <section id="about" className="section">
       <div className="container">

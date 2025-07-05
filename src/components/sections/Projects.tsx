@@ -1,4 +1,6 @@
-export function Projects() {
+//Project.tsx
+
+export default function Projects() {
   return (
     <section>
       <h2>Projects</h2>
