@@ -2,11 +2,22 @@
 
 import { ThemeToggle } from "../../theme/ThemeToggle";
 
+type Section = {
+  href: string;
+  name: string;
+};
+
+const sections: Section[] = [
+  { href: "#about", name: "About" },
+  { href: "#skills", name: "Skills" },
+  { href: "#projects", name: "Projects" },
+  { href: "#contact", name: "Contact" },
+];
+
 export default function Navigation() {
   return (
     <nav className="mx-4 mt-4 max-w-screen-lg lg:mx-auto">
       <div className="navbar bg-base-100/80 shadow-lg rounded-xl backdrop-blur px-4 sm:px-6">
-        {/* Mobile menu dropdown */}
         <div className="navbar-start">
           <a href="#" className="btn btn-ghost text-xl font-bold">
             Portfolio
@@ -16,42 +27,22 @@ export default function Navigation() {
         {/* Desktop menu */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2">
-            <li>
-              <a
-                href="#about"
-                className="text-base hover:text-primary transition-colors"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#skills"
-                className="text-base hover:text-primary transition-colors"
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="text-base hover:text-primary transition-colors"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-base hover:text-primary transition-colors"
-              >
-                Contact
-              </a>
-            </li>
+            {sections.map((section) => {
+              return (
+                <li key={section.href}>
+                  <a
+                    href={section.href}
+                    className="text-base hover:text-primary transition-colors"
+                  >
+                    {section.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
-        {/* Right side */}
+        {/* Mobile menu dropdown */}
         <div className="navbar-end">
           <ThemeToggle />
           <div className="dropdown">
@@ -66,31 +57,20 @@ export default function Navigation() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
+                  d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
             </div>
             <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <li>
-                <a href="#about" className="text-base">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="text-base">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="text-base">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-base">
-                  Contact
-                </a>
-              </li>
+              {sections.map((section) => {
+                return (
+                  <li key={section.href}>
+                    <a href={section.href} className="text-base">
+                      {section.name}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

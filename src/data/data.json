@@ -1,6 +1,14 @@
 {
-  "hero": "",
-  "about": "",
-  "projects": "",
-  "skills": ""
+  "hero": {
+    "greeting": "Hi! 👋 My name is Serhii Kuzmin",
+    "description": "I'm a senior at the University of Scraton majoring in Computer Science and Mathematical Sciences. I'm a Software Engineer specializing in Full-Stack Web Development",
+    "socials": {
+      "linkedIn": "https://www.linkedin.com/in/sersergious-dev/",
+      "github": "https://github.com/sersergious"
+    }
+  },
+  "about": {},
+  "experience": {},
+  "projects": {},
+  "skills": {}
 }
