@@ -1,6 +1,6 @@
 //Navigation.tsx
 
-import { ThemeToggle } from "../../theme/ThemeToggle";
+import { ThemeToggle } from "../theme/ThemeToggle";
 
 type Section = {
   href: string;
@@ -11,6 +11,7 @@ const sections: Section[] = [
   { href: "#about", name: "About" },
   { href: "#skills", name: "Skills" },
   { href: "#projects", name: "Projects" },
+  { href: "experience", name: "Experience" },
   { href: "#contact", name: "Contact" },
 ];
 
@@ -61,7 +62,7 @@ export default function Navigation() {
                 />
               </svg>
             </div>
-            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ">
               {sections.map((section) => {
                 return (
                   <li key={section.href}>

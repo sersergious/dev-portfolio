@@ -1,0 +1,5 @@
+@plugin "daisyui";
+
+body {
+    overscroll-behavior-y: none;
+}
