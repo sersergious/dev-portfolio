@@ -5,8 +5,8 @@ This is my portfolio website. Here you can read about me, what I do, and how I c
 
 ## Technical Details
 Here is a brief overview of the technologies used in this project:
+- Next.js
 - React.js
 - TypeScript
-- Vite
 - Tailwind CSS
-- Daisy UI - a Tailwind component library
+- PostCSS
