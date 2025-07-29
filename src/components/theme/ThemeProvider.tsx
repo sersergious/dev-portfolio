@@ -1,7 +1,7 @@
 // ThemeProvider.tsx
 import { useState, useEffect } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
-import type { Theme } from "../../context/ThemeContext";
+import { ThemeContext } from "@/context/ThemeContext";
+import type { Theme } from "@/context/ThemeContext";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Theme state

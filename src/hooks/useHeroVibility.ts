@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { HeroVisibilityContext } from "../context/HeroVisibilityContext";
+import { HeroVisibilityContext } from "@/context/HeroVisibilityContext";
 
 export const useHeroVisibility = () => {
   const context = useContext(HeroVisibilityContext);
