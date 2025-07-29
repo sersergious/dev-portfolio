@@ -1,24 +1,16 @@
 import data from "../../../data/data.json";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useHeroVisibility } from "../../../hooks/useHeroVibility";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isExiting, setIsExiting] = useState(false);
+
   const { setHeroInView } = useHeroVisibility();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setHeroInView(!entry.isIntersecting);
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setIsExiting(false);
-        } else {
-          setIsExiting(true);
-          setTimeout(() => setIsVisible(false), 300);
-        }
       },
       {
         threshold: 0.2,
@@ -36,38 +28,38 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className={`hero min-h-screen bg-base-300 relative overflow-hidden hero-section ${
-        isVisible ? "animate" : ""
-      } ${isExiting ? "fade-out" : ""}`}
+      className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
     >
-      <div className="hero-content max-w-7xl mx-auto w-full px-4 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto w-full px-4 lg:px-8 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-16">
-          {/* Content Section - flex-[0.6] */}
-          <div className="flex-[0.5] w-full hero-content-container">
+          {/* Content Section */}
+          <div className="flex-[0.5] w-full">
             <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
               {/* Greeting */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
                 <span>{data.hero.greeting}</span>
               </h1>
 
               {/* Description */}
-              <h2 className="text-xl sm:text-2xl lg:text-3xl  hero-gradient-text font-semibold text-base-content/90 mb-6 slide-in-left-delayed">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6 slide-in-left-delayed">
                 {data.hero.description}
               </h2>
 
               {/* Image for mobile view */}
               <div className="flex justify-center my-6 lg:hidden">
-                <div className="hero-image-square">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
-                    alt={`${data.hero.greeting.split("I'm ")[1]} - Professional Portrait`}
-                    className="transition-all duration-500 hover:scale-110"
-                  />
+                <div className="relative">
+                  <div className="w-64 h-64 rounded-xl shadow-xl overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
+                      alt={`${data.hero.greeting.split("I'm ")[1]} - Professional Portrait`}
+                      className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Tagline */}
-              <p className="text-lg sm:text-xl text-base-content/70 leading-relaxed mb-8 slide-in-left-delayed-2">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-8 slide-in-left-delayed-2">
                 {data.hero.tagline}
               </p>
 
@@ -77,9 +69,8 @@ export default function Hero() {
                   href={data.hero.socials.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-link"
                 >
-                  <button className="btn btn-accent btn-lg rounded">
+                  <button className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     <svg
                       className="w-5 h-5 mr-2"
                       fill="currentColor"
@@ -95,9 +86,8 @@ export default function Hero() {
                   href={data.hero.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-link"
                 >
-                  <button className="btn  btn-primary btn-lg ">
+                  <button className="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white text-lg font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                     <svg
                       className="w-5 h-5 mr-2"
                       fill="currentColor"
@@ -112,23 +102,18 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Image Section - flex-[0.4] */}
-          <div className="flex-[0.5] w-full hero-image-container hidden lg:flex justify-center">
-            <div className="hero-image-square">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
-                alt={`${data.hero.greeting.split("I'm ")[1]} - Professional Portrait`}
-                className="transition-all duration-500 hover:scale-110"
-              />
+          {/* Image Section */}
+          <div className="flex-[0.5] w-full hidden lg:flex justify-center">
+            <div className="relative">
+              <div className="w-80 h-80 rounded-xl shadow-xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
+                  alt={`${data.hero.greeting.split("I'm ")[1]} - Professional Portrait`}
+                  className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5">
-          <div className="w-full h-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20"></div>
         </div>
       </div>
     </section>

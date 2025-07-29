@@ -1,4 +1,4 @@
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -61,9 +61,12 @@ export function ThemeToggle() {
   };
 
   return (
-    <label className="btn btn-ghost btn-sm swap">
-      <input type="checkbox" onChange={handleThemeChange} className="hidden" />
-      <div className="swap-rotate">{getIcon()}</div>
-    </label>
+    <button
+      onClick={handleThemeChange}
+      className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+      aria-label="Toggle theme"
+    >
+      <div className="transform transition-transform duration-200 hover:scale-110">{getIcon()}</div>
+    </button>
   );
 }
